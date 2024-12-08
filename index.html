@@ -4,96 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Catalog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #6200ea;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 1.5em;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .game-card {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.2s;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .game-image {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .game-info {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .game-info h3 {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-
-        .game-info a {
-            display: inline-block;
-            padding: 10px 15px;
-            margin-top: 10px;
-            background-color: #6200ea;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .game-info a:hover {
-            background-color: #3700b3;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>Jogos de colorir</header>
-    <div class="container">
-        <!-- Example Game Card -->
-        <div class="game-card">
-            <img src="colorir-001-casa/img/casa.svg" alt="Game 1" class="game-image">
-            <div class="game-info">
-                <h3>Colorir casa</h3>
-                <a href="colorir-002-unicornio/index.html">Jogar</a>
-            </div>
-        </div>
-        
-        <div class="game-card">
-            <img src="colorir-002-unicornio/img/unicornio.svg" alt="Game 2" class="game-image">
-            <div class="game-info">
-                <h3>Game 2</h3>
-                <a href="colorir-002-unicornio/index.html">Jogar</a>
-            </div>
-        </div>
-        
-        <!-- Additional game cards can be added similarly -->
+    <header>Game Catalog</header>
+    <div class="container" id="game-container">
+        <!-- Game cards will be dynamically added here -->
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

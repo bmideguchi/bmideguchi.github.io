@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const link = document.createElement("a");
             link.href = `${game.folder}/index.html`;
-            link.textContent = "Play Now";
+            link.textContent = "Jogar";
 
             info.appendChild(title);
             info.appendChild(link);

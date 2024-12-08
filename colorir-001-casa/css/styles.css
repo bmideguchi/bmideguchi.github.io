@@ -58,12 +58,24 @@ body {
 }
 
 .color {
-    width: 40px;
-    height: 40px;
-    margin: 0 5px;
-    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border: 3px solid #fff; /* Destaca a borda com branco */
     border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para um visual 3D */
     cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Para o branco, adicionamos um contorno para melhor visibilidade */
+.color[data-color="#FFFFFF"] {
+    border: 2px solid #ccc;
+}
+
+.color:hover {
+    transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Sombra aumentada ao passar o mouse */
 }
 
 /* Redimensionamento automático do SVG */

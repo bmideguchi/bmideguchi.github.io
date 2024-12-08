@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // JSON configuration for games
     const games = [
         { folder: "colorir-001-casa", name: "Casa" },
-        { folder: "colorir-002-unicornio", name: "Unicornio" }
+        { folder: "colorir-002-unicornio", name: "Unicornio" },
+        { folder: "colorir-003-cachorro", name: "cachorro" }
     ];
 
     // Function to dynamically create game cards

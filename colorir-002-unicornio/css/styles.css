@@ -1,3 +1,7 @@
+body {
+    cursor: url('../img/pincel.png'), auto;
+}
+
 /* Tela de capa */
 #game-cover {
     position: absolute;

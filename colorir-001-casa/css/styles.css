@@ -62,10 +62,25 @@
     cursor: pointer;
 }
 
+/* Redimensionamento automático do SVG */
 #svg-container {
     margin: 20px auto;
-    max-width: 500px;
-    height: auto;
+    max-width: 90vw; /* Limita a largura máxima a 90% da largura da janela */
+    max-height: 90vh; /* Limita a altura máxima a 90% da altura da janela */
+    width: auto; /* Ajusta automaticamente a largura se a altura for limitada */
+    height: auto; /* Ajusta automaticamente a altura se a largura for limitada */
+    display: flex; /* Centraliza o SVG */
+    justify-content: center;
+    align-items: center;
     border: 1px solid #ccc;
     background-color: #fff;
+    overflow: hidden; /* Impede que o SVG ultrapasse o container */
 }
+
+#svg-container svg {
+    max-width: 100%; /* Ocupa todo o espaço horizontal disponível no container */
+    max-height: 100%; /* Ocupa todo o espaço vertical disponível no container */
+    width: auto; /* Mantém a largura proporcional à altura */
+    height: auto; /* Mantém a altura proporcional à largura */
+}
+

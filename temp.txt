@@ -1,0 +1,6 @@
+const games = [
+    { folder: "colorir-001-casa", name: "Casa", category: "colorir" },
+    { folder: "colorir-002-unicornio", name: "Unicornio", category: "colorir" },
+    { folder: "colorir-003-cachorro", name: "cachorro", category: "colorir" }
+    ( folder: "relacionar-001-formas", name: "Relacionar formas", category: "relacionar")
+];

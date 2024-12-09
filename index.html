@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogos de colorir</title>
+    <title>Catálogo de Jogos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>Jogos de colorir</header>
-    <div class="container" id="game-container">
-        <!-- Game cards will be dynamically added here -->
-    </div>
-
+    <header>Catálogo de Jogos</header>
+    <main>
+        <div class="sidebar" id="sidebar">
+            <h2>Selecione os jogos que deseja ver</h2>
+            <div>
+                <!-- Checklist will be dynamically populated -->
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown()">Filtros</button>
+            <div class="dropdown-content" id="dropdown-content">
+                <h2>Selecione os jogos que deseja ver</h2>
+                <div>
+                    <!-- Dropdown content will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+        <div class="container" id="game-container">
+            <!-- Game cards will be populated dynamically -->
+        </div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

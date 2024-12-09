@@ -1,0 +1,102 @@
+body {
+    cursor: url('../img/pincel.png'), auto;
+}
+
+/* Tela de capa */
+#game-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: url('../img/fundo-capa.jpg') no-repeat center center/cover;
+}
+
+#cover-header {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 20px 0;
+}
+
+#cover-header h1 {
+    color: white;
+    font-size: 3rem;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#cover-footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 20px 0;
+}
+
+#start-button {
+    padding: 10px 50px;
+    font-size: 2rem;
+    border: none;
+    background-color: #ffbd22;
+    color: rgb(100, 80, 0);
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+#start-button:hover {
+    background-color: #e64a19;
+}
+
+/* Paleta de cores */
+.palette {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.color {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    border: 3px solid #fff; /* Destaca a borda com branco */
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para um visual 3D */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Para o branco, adicionamos um contorno para melhor visibilidade */
+.color[data-color="#FFFFFF"] {
+    border: 2px solid #ccc;
+}
+
+.color:hover {
+    transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Sombra aumentada ao passar o mouse */
+}
+
+/* Redimensionamento automático do SVG */
+#svg-container {
+    margin: 20px auto;
+    max-width: 90vw; /* Limita a largura máxima a 90% da largura da janela */
+    max-height: 90vh; /* Limita a altura máxima a 90% da altura da janela */
+    width: auto; /* Ajusta automaticamente a largura se a altura for limitada */
+    height: auto; /* Ajusta automaticamente a altura se a largura for limitada */
+    display: flex; /* Centraliza o SVG */
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    overflow: hidden; /* Impede que o SVG ultrapasse o container */
+}
+
+#svg-container svg {
+    max-width: 100%; /* Ocupa todo o espaço horizontal disponível no container */
+    max-height: 100%; /* Ocupa todo o espaço vertical disponível no container */
+    width: auto; /* Mantém a largura proporcional à altura */
+    height: auto; /* Mantém a altura proporcional à largura */
+}
+

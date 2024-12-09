@@ -3,13 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Desenhe Sobre a Imagem</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Ligue os Pontos</title>
+  <link rel="stylesheet" href="css/capa.css">
 </head>
 <body>
-  <div class="container">
+  <!-- Tela de capa -->
+  <div id="coverScreen" class="cover-screen">
+    <div class="header">LIGUE OS PONTOS</div>
+    <div class="background"></div>
+    <div class="footer">
+      <button id="startButton" class="start-button">INICIAR</button>
+    </div>
+  </div>
+
+  <!-- Tela do jogo -->
+  <div id="gameScreen" class="game-screen hidden">
     <canvas id="drawingCanvas" width="800" height="800"></canvas>
   </div>
-  <script src="script.js"></script>
+
+  <script src="js/capa.js"></script>
+  <script src="js/script.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </body>
 </html>

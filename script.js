@@ -2,20 +2,38 @@ const games = [
     { folder: "colorir-001-casa", name: "Casa", category: "colorir" },
     { folder: "colorir-002-unicornio", name: "Unicornio", category: "colorir" },
     { folder: "colorir-003-cachorro", name: "cachorro", category: "colorir" },
+    { folder: "colorir-004-dinossauro", name: "dinossauro", category: "colorir" },
+    { folder: "colorir-005-coruja", name: "coruja", category: "colorir" },
+    { folder: "colorir-006-coelho", name: "coelho", category: "colorir" },
+    { folder: "colorir-007-girafa", name: "girafa", category: "colorir" },
+    { folder: "colorir-008-peixe", name: "peixe", category: "colorir" },
+    { folder: "colorir-009-robo", name: "robô", category: "colorir" },
     { folder: "relacionar-001-formas", name: "Relacionar formas", category: "relacionar"},
     { folder: "liguePontos-001", name: "Gato", category: "liguePontos"},
     { folder: "liguePontos-002", name: "Avião", category: "liguePontos"},
     { folder: "liguePontos-003", name: "Peixe", category: "liguePontos"},
     { folder: "liguePontos-004", name: "Porco", category: "liguePontos"},
     { folder: "liguePontos-005", name: "Pássaro", category: "liguePontos"},
-    { folder: "empilhar-001", name: "empilhar números", category: "empilhar"}
+    { folder: "liguePontos-006", name: "Polvo", category: "liguePontos"},
+    { folder: "liguePontos-007", name: "Gato 2", category: "liguePontos"},
+    { folder: "liguePontos-008", name: "Bailarina", category: "liguePontos"},
+    { folder: "liguePontos-009", name: "Tartaruga", category: "liguePontos"},
+    { folder: "liguePontos-010", name: "Menina e unicórnio", category: "liguePontos"},
+    { folder: "liguePontos-011", name: "Rato", category: "liguePontos"},
+    { folder: "liguePontos-012", name: "Água viva", category: "liguePontos"},
+    { folder: "liguePontos-013", name: "Urso", category: "liguePontos"},
+    { folder: "liguePontos-014", name: "Flor", category: "liguePontos"},
+    { folder: "liguePontos-015", name: "Galinha", category: "liguePontos"},
+    { folder: "empilhar-001", name: "empilhar números", category: "empilhar"},
+    { folder: "desenhar-001", name: "mão", category: "desenhar"}
 
 ];
 const categoryColors = {
     colorir: "#ff5722",
     relacionar: "#2196f3",
     liguePontos: "#4caf50",
-    empilhar: "#ffbd22"
+    empilhar: "#ffbd22",
+    desenhar: "#4B0082"
 };
 
 function toggleDropdown() {

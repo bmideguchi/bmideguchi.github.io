@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: url('../img/fundo-capa.jpg') no-repeat center center/cover;
+    background: url('../img/capa.png') no-repeat center center/cover;
 }
 
 #cover-header {

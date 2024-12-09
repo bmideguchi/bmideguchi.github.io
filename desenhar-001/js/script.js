@@ -27,26 +27,36 @@ document.addEventListener("DOMContentLoaded", () => {
   function resizeCanvas() {
     const container = document.querySelector('.container');
     const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
 
-    // Calcular o tamanho do canvas para manter a proporção 1:1 (quadrado)
-    const size = Math.min(containerWidth * 0.7, 720); // Limitar o tamanho a 70% do container ou 720px
-    const reducedSize = size * 0.95; // Reduzir o tamanho do canvas em 5%
+    let newWidth, newHeight;
 
-    console.log("Novo tamanho calculado para o canvas (5% menor):", reducedSize);
+    // Calcular a menor dimensão (largura ou altura) e ajustar para manter a proporção 16:9
+    if (containerWidth / containerHeight < 16 / 9) {
+      newWidth = containerWidth;
+      newHeight = containerWidth * 9 / 16; // Ajuste a altura com base na largura
+    } else {
+      newHeight = containerHeight;
+      newWidth = containerHeight * 16 / 9; // Ajuste a largura com base na altura
+    }
 
-    // Ajusta os canvases para o novo tamanho
-    backgroundCanvas.style.width = `${reducedSize}px`;
-    backgroundCanvas.style.height = `${reducedSize}px`;
-    drawingCanvas.style.width = `${reducedSize}px`;
-    drawingCanvas.style.height = `${reducedSize}px`;
+    // Definir as dimensões do container para 16:9
+    container.style.width = `${newWidth}px`;
+    container.style.height = `${newHeight}px`;
 
-    // O tamanho interno do canvas permanece na resolução original da imagem
-    backgroundCanvas.width = backgroundImage.width;
-    backgroundCanvas.height = backgroundImage.height;
-    drawingCanvas.width = backgroundImage.width;
-    drawingCanvas.height = backgroundImage.height;
+    // Ajustar o canvas para ocupar a área do container
+    backgroundCanvas.style.width = `${newWidth}px`;
+    backgroundCanvas.style.height = `${newHeight}px`;
+    drawingCanvas.style.width = `${newWidth}px`;
+    drawingCanvas.style.height = `${newHeight}px`;
 
-    console.log("Dimensões internas do canvas após redimensionamento:", drawingCanvas.width, drawingCanvas.height);
+    // Ajustar o tamanho interno dos canvases para manter a proporção 16:9
+    backgroundCanvas.width = newWidth;
+    backgroundCanvas.height = newHeight;
+    drawingCanvas.width = newWidth;
+    drawingCanvas.height = newHeight;
+
+    console.log("Dimensões do container e canvas ajustadas:", newWidth, newHeight);
 
     // Limpar o canvas e desenhar a imagem de fundo com 5% de transparência
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);

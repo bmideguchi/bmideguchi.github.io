@@ -17,6 +17,7 @@ body, html {
   display: flex;
   flex-direction: column;  /* Layout flex em coluna */
   position: relative;
+  overflow: hidden; /* Impede o transbordamento */
 }
 
 /* Tela de Capa */
@@ -45,7 +46,7 @@ body, html {
 
 .background {
   flex: 1;
-  background-image: url('../img/capa.jpg'); /* Caminho para a imagem de fundo */
+  background-image: url('../img/capa.png'); /* Caminho para a imagem de fundo */
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -63,15 +64,6 @@ body, html {
   padding: 2rem 0;
   position: absolute;
   bottom: 0;  /* Fixar a faixa inferior no rodapé */
-}
-
-.footer button{
-  color: black;
-  background-color: orange;
-  padding: 1rem 3rem;
-  font-size: 2rem;
-  border-radius: 1rem;
-  border-style: none;
 }
 
 .start-button {
@@ -103,13 +95,15 @@ body, html {
 /* Canvas */
 #backgroundCanvas,
 #drawingCanvas {
-  width: 720px; /* Largura fixa do canvas */
-  height: 720px; /* Altura fixa do canvas */
+  width: 100%; /* Ajusta para a largura disponível */
+  height: auto; /* A altura se ajusta automaticamente */
+  max-width: 720px; /* Limita a largura máxima */
+  max-height: 720px; /* Limita a altura máxima */
   position: absolute;
   right: 0;
   top: 50%;
-  transform: translateY(-50%); /* Centralizar verticalmente */
-  border: 2px solid #333; /* Adicionando borda ao canvas */
+  transform: translateY(-50%); /* Centraliza verticalmente */
+  border: 2px solid #333; /* Borda do canvas */
 }
 
 /* Controles */
@@ -119,8 +113,9 @@ body, html {
   background-color: #f4f4f9;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  position: absolute;
   left: 10px;
+  top: 10px;
+  vertical-align: middle;
 }
 
 .palette {

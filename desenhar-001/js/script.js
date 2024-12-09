@@ -12,33 +12,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const backgroundImage = new Image();
   backgroundImage.src = "img/desenhar.svg"; // Caminho para a imagem de fundo
 
-  // Criar canvas temporário para armazenar o desenho
-  const tempCanvas = document.createElement("canvas");
-  const tempCtx = tempCanvas.getContext("2d");
-
   // Variáveis para controle de desenho
   let currentColor = "#000000";
   let currentSize = 3;
-  let isDrawing = false; // Variável de controle de desenho
+  let isDrawing = false;
   let isErasing = false;
   let lastX = 0;
   let lastY = 0;
   let drawingData = []; // Para armazenar o desenho
+
+  let savedDrawingData = null; // Variável para armazenar os dados do desenho
 
   // Função de redimensionamento dos canvases e container
   function resizeCanvas() {
     const container = document.querySelector('.container');
     const containerWidth = container.offsetWidth;
 
-    // Ajustar os canvases para corresponder ao tamanho da div container
-    const width = 720; // O canvas ocupa 720px de largura
-    const height = 720; // O canvas ocupa 720px de altura
+    // Calcular o tamanho do canvas para manter a proporção 1:1 (quadrado)
+    const size = Math.min(containerWidth * 0.7, 720); // Limitar o tamanho a 70% do container ou 720px
+    const reducedSize = size * 0.95; // Reduzir o tamanho do canvas em 5%
 
-    // Ajustar o canvas
-    backgroundCanvas.style.width = `${width}px`;
-    backgroundCanvas.style.height = `${height}px`;
-    drawingCanvas.style.width = `${width}px`;
-    drawingCanvas.style.height = `${height}px`;
+    console.log("Novo tamanho calculado para o canvas (5% menor):", reducedSize);
+
+    // Ajusta os canvases para o novo tamanho
+    backgroundCanvas.style.width = `${reducedSize}px`;
+    backgroundCanvas.style.height = `${reducedSize}px`;
+    drawingCanvas.style.width = `${reducedSize}px`;
+    drawingCanvas.style.height = `${reducedSize}px`;
 
     // O tamanho interno do canvas permanece na resolução original da imagem
     backgroundCanvas.width = backgroundImage.width;
@@ -46,11 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
     drawingCanvas.width = backgroundImage.width;
     drawingCanvas.height = backgroundImage.height;
 
+    console.log("Dimensões internas do canvas após redimensionamento:", drawingCanvas.width, drawingCanvas.height);
+
     // Limpar o canvas e desenhar a imagem de fundo com 5% de transparência
     backgroundCtx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
     backgroundCtx.globalAlpha = 0.05;  // Transparência de 5% na imagem de fundo
     backgroundCtx.drawImage(backgroundImage, 0, 0, backgroundCanvas.width, backgroundCanvas.height);
     backgroundCtx.globalAlpha = 1;  // Resetar a opacidade para 100%
+
+    // Se o desenho foi armazenado, restaurar os dados
+    if (savedDrawingData) {
+      drawingCtx.putImageData(savedDrawingData, 0, 0); // Restaurar o desenho do usuário
+      console.log("Desenho restaurado no drawingCanvas.");
+    }
   }
 
   // Carregar a imagem de fundo e inicializar o redimensionamento
@@ -73,22 +81,83 @@ document.addEventListener("DOMContentLoaded", () => {
   startButton.addEventListener("click", startGameWithNarration);
 
   // Funções de desenho
-  drawingCanvas.addEventListener("mousedown", (e) => {
-    isDrawing = true; // Inicia o desenho
-    const rect = drawingCanvas.getBoundingClientRect();
-    lastX = (e.clientX - rect.left) * (drawingCanvas.width / rect.width);
-    lastY = (e.clientY - rect.top) * (drawingCanvas.height / rect.height);
-  });
-
-  drawingCanvas.addEventListener("mouseup", () => isDrawing = false); // Interrompe o desenho
-  drawingCanvas.addEventListener("mouseout", () => isDrawing = false); // Interrompe o desenho
-
-  drawingCanvas.addEventListener("mousemove", (e) => {
-    if (!isDrawing) return; // Não desenha se não estiver pressionando o mouse
-
+  function getCoordinates(e) {
     const rect = drawingCanvas.getBoundingClientRect();
     const x = (e.clientX - rect.left) * (drawingCanvas.width / rect.width);
     const y = (e.clientY - rect.top) * (drawingCanvas.height / rect.height);
+    return { x, y };
+  }
+
+  // Mouse Events
+  drawingCanvas.addEventListener("mousedown", (e) => {
+    isDrawing = true;
+    const { x, y } = getCoordinates(e);
+    lastX = x;
+    lastY = y;
+  });
+
+  drawingCanvas.addEventListener("mouseup", () => isDrawing = false);
+  drawingCanvas.addEventListener("mouseout", () => isDrawing = false);
+
+  drawingCanvas.addEventListener("mousemove", (e) => {
+    if (!isDrawing) return;
+
+    const { x, y } = getCoordinates(e);
+
+    if (isErasing) {
+      drawingCtx.save();
+      drawingCtx.globalCompositeOperation = "destination-out"; // Apagar o desenho
+      drawingCtx.lineWidth = currentSize;
+      drawingCtx.strokeStyle = "rgba(0,0,0,1)";
+      drawingCtx.lineJoin = "round";
+      drawingCtx.lineCap = "round";
+      drawingCtx.beginPath();
+      drawingCtx.moveTo(lastX, lastY);
+      drawingCtx.lineTo(x, y);
+      drawingCtx.stroke();
+      drawingCtx.restore();
+    } else {
+      drawingCtx.globalCompositeOperation = "source-over"; // Desenho normal
+      drawingCtx.strokeStyle = currentColor;
+      drawingCtx.lineWidth = currentSize;
+      drawingCtx.lineJoin = "round";
+      drawingCtx.lineCap = "round";
+      drawingCtx.beginPath();
+      drawingCtx.moveTo(lastX, lastY);
+      drawingCtx.lineTo(x, y);
+      drawingCtx.stroke();
+
+      // Armazenar o desenho
+      drawingData.push({
+        operation: "source-over",
+        color: currentColor,
+        size: currentSize,
+        startX: lastX,
+        startY: lastY,
+        endX: x,
+        endY: y
+      });
+    }
+
+    [lastX, lastY] = [x, y];
+  });
+
+  // Touch Events
+  drawingCanvas.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // Previne o comportamento padrão
+    isDrawing = true;
+    const { x, y } = getCoordinates(e.touches[0]); // Considerar o primeiro toque
+    lastX = x;
+    lastY = y;
+  });
+
+  drawingCanvas.addEventListener("touchend", () => isDrawing = false);
+  drawingCanvas.addEventListener("touchcancel", () => isDrawing = false);
+
+  drawingCanvas.addEventListener("touchmove", (e) => {
+    if (!isDrawing) return;
+
+    const { x, y } = getCoordinates(e.touches[0]); // Considerar o primeiro toque
 
     if (isErasing) {
       drawingCtx.save();
@@ -153,5 +222,12 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("clearCanvas").addEventListener("click", () => {
     drawingCtx.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
     drawingData = []; // Limpa o histórico de desenhos
+    savedDrawingData = null; // Limpa os dados salvos
+  });
+
+  // Salvar os dados do desenho quando necessário
+  drawingCanvas.addEventListener("mouseup", () => {
+    savedDrawingData = drawingCtx.getImageData(0, 0, drawingCanvas.width, drawingCanvas.height);
+    console.log("Desenho salvo em savedDrawingData.");
   });
 });

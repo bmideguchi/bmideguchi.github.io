@@ -27,7 +27,7 @@ body {
 
 .background {
   flex: 1;
-  background-image: url('../img/capa.jpg'); /* Caminho atualizado para a pasta img */
+  background-image: url('../img/capa.png'); /* Caminho atualizado para a pasta img */
   background-size: cover;
   background-position: center;
 }

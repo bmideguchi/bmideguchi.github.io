@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" version="1.1" viewBox="0 0 800 800">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 12px;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.3, SVG Export Plug-In . SVG Version: 1.2.0 Build 164)  -->
+  <g>
+    <g id="Camada_1">
+      <rect class="cls-1" x="247.5" y="145.79" width="305" height="490" rx="25" ry="25"/>
+      <rect class="cls-1" x="276" y="171.79" width="245" height="400" rx="25" ry="25"/>
+      <circle class="cls-1" cx="400" cy="603" r="14"/>
+    </g>
+  </g>
+</svg>

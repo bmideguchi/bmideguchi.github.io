@@ -1,7 +1,7 @@
 const canvas = document.getElementById("drawingCanvas");
 const ctx = canvas.getContext("2d");
 
-const backgroundImage = "img/pontos.jpg"; // Nome da imagem de fundo
+const backgroundImage = "img/pontos.svg"; // Nome da imagem de fundo
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;

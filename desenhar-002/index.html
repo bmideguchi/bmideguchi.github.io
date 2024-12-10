@@ -2,62 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Ligue os Pontos</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/capa.css">
 </head>
 <body>
-  <!-- Tela de capa -->
-  <div id="coverScreen" class="coverScreen">
-    <div class="header">CONTORNAR E PINTAR</div>
-    <div class="background"></div>
-    <div class="footer">
-      <button id="startButton">INICIAR</button>
-    </div>
-  </div>
-
-  <!-- Tela do jogo -->
-  <div id="gameScreen" class="game-screen hidden">
-    <div class="controls">
-      <div class="palette">
-        <button class="color" data-color="#FF0000" style="background-color: #FF0000;"></button> <!-- Vermelho -->
-        <button class="color" data-color="#FF4500" style="background-color: #FF4500;"></button> <!-- Laranja Vermelho -->
-        <button class="color" data-color="#FF7F00" style="background-color: #FF7F00;"></button> <!-- Laranja -->
-        <button class="color" data-color="#FFA500" style="background-color: #FFA500;"></button> <!-- Laranja Claro -->
-        <button class="color" data-color="#FFD700" style="background-color: #FFD700;"></button> <!-- Ouro -->
-        <button class="color" data-color="#FFFF00" style="background-color: #FFFF00;"></button> <!-- Amarelo -->
-        <button class="color" data-color="#ADFF2F" style="background-color: #ADFF2F;"></button> <!-- Verde Claro -->
-        <button class="color" data-color="#008000" style="background-color: #008000;"></button> <!-- Verde -->
-        <button class="color" data-color="#006400" style="background-color: #006400;"></button> <!-- Verde Escuro -->
-        <button class="color" data-color="#00FF00" style="background-color: #00FF00;"></button> <!-- Verde Neon -->
-        <button class="color" data-color="#00FFFF" style="background-color: #00FFFF;"></button> <!-- Ciano -->
-        <button class="color" data-color="#0000FF" style="background-color: #0000FF;"></button> <!-- Azul -->
-        <button class="color" data-color="#0000CD" style="background-color: #0000CD;"></button> <!-- Azul Escuro -->
-        <button class="color" data-color="#4169E1" style="background-color: #4169E1;"></button> <!-- Azul Royal -->
-        <button class="color" data-color="#8A2BE2" style="background-color: #8A2BE2;"></button> <!-- Violeta -->
-        <button class="color" data-color="#4B0082" style="background-color: #4B0082;"></button> <!-- Anil -->
-        <button class="color" data-color="#800080" style="background-color: #800080;"></button> <!-- Roxo -->
-        <button class="color" data-color="#9932CC" style="background-color: #9932CC;"></button> <!-- Orquídea -->
-        <button class="color" data-color="#8B008B" style="background-color: #8B008B;"></button> <!-- Roxo Escuro -->
-        <button class="color" data-color="#FF00FF" style="background-color: #FF00FF;"></button> <!-- Magenta -->
-        <button class="color" data-color="#D3D3D3" style="background-color: #D3D3D3;"></button> <!-- Cinza Claro -->
-        <button class="color" data-color="#FFFFFF" style="background-color: #FFFFFF;"></button> <!-- Branco -->
-        <button class="color" data-color="#000000" style="background-color: #000000;"></button> <!-- Preto -->
-      </div>
-      <div class="tools">
-        <button class="tool brush" data-size="3">Pincel Pequeno</button>
-        <button class="tool brush" data-size="10">Pincel Médio</button>
-        <button class="tool brush" data-size="20">Pincel Grande</button>
-        <button class="tool eraser">Borracha</button>
-        <button class="tool clear" id="clearCanvas">Limpar</button>
+  <div class="container">
+    
+    <!-- Tela de capa -->
+    <div id="coverScreen" class="coverScreen">
+      <div class="header">CONTORNAR E PINTAR</div>
+      <div class="background"></div>
+      <div class="footer">
+        <button id="startButton">INICIAR</button>
       </div>
     </div>
 
-    <!-- Canvas para a imagem de fundo -->
-    <canvas id="backgroundCanvas" width="800" height="800"></canvas>
-    <!-- Canvas para o desenho do aluno -->
-    <canvas id="drawingCanvas" width="800" height="800"></canvas>
+    <!-- Tela do jogo -->
+    <div id="gameScreen" class="game-screen hidden">
+      <div class="controls">
+        <div class="palette">
+          <button class="color" data-color="#FF0000" style="background-color: #FF0000;"></button> <!-- Vermelho -->
+          <button class="color" data-color="#FF4500" style="background-color: #FF4500;"></button> <!-- Laranja Vermelho -->
+          <button class="color" data-color="#FF7F00" style="background-color: #FF7F00;"></button> <!-- Laranja -->
+          <button class="color" data-color="#FFA500" style="background-color: #FFA500;"></button> <!-- Laranja Claro -->
+          <button class="color" data-color="#FFD700" style="background-color: #FFD700;"></button> <!-- Ouro -->
+          <button class="color" data-color="#FFFF00" style="background-color: #FFFF00;"></button> <!-- Amarelo -->
+          <button class="color" data-color="#ADFF2F" style="background-color: #ADFF2F;"></button> <!-- Verde Claro -->
+          <button class="color" data-color="#008000" style="background-color: #008000;"></button> <!-- Verde -->
+          <button class="color" data-color="#006400" style="background-color: #006400;"></button> <!-- Verde Escuro -->
+          <button class="color" data-color="#00FF00" style="background-color: #00FF00;"></button> <!-- Verde Neon -->
+          <button class="color" data-color="#00FFFF" style="background-color: #00FFFF;"></button> <!-- Ciano -->
+          <button class="color" data-color="#0000FF" style="background-color: #0000FF;"></button> <!-- Azul -->
+          <button class="color" data-color="#0000CD" style="background-color: #0000CD;"></button> <!-- Azul Escuro -->
+          <button class="color" data-color="#4169E1" style="background-color: #4169E1;"></button> <!-- Azul Royal -->
+          <button class="color" data-color="#8A2BE2" style="background-color: #8A2BE2;"></button> <!-- Violeta -->
+          <button class="color" data-color="#4B0082" style="background-color: #4B0082;"></button> <!-- Anil -->
+          <button class="color" data-color="#800080" style="background-color: #800080;"></button> <!-- Roxo -->
+          <button class="color" data-color="#9932CC" style="background-color: #9932CC;"></button> <!-- Orquídea -->
+          <button class="color" data-color="#8B008B" style="background-color: #8B008B;"></button> <!-- Roxo Escuro -->
+          <button class="color" data-color="#FF00FF" style="background-color: #FF00FF;"></button> <!-- Magenta -->
+          <button class="color" data-color="#D3D3D3" style="background-color: #D3D3D3;"></button> <!-- Cinza Claro -->
+          <button class="color" data-color="#FFFFFF" style="background-color: #FFFFFF;"></button> <!-- Branco -->
+          <button class="color" data-color="#000000" style="background-color: #000000;"></button> <!-- Preto -->
+        </div>
+        <div class="tools" width="100%">
+          <button class="tool brush" data-size="3">Pincel Pequeno</button>
+          <button class="tool brush" data-size="10">Pincel Médio</button>
+          <button class="tool brush" data-size="20">Pincel Grande</button>
+          <button class="tool fullscreen" id="fullscreenButton">Tela Cheia</button>
+          <button class="tool eraser">Borracha</button>
+          <button class="tool clear" id="clearCanvas">Limpar</button>
+        </div>
+      </div>
+
+      <!-- Canvas para a imagem de fundo -->
+      <canvas id="backgroundCanvas" width="720" height="720"></canvas>
+      <!-- Canvas para o desenho do aluno -->
+      <canvas id="drawingCanvas" width="720" height="720"></canvas>
+    </div>
   </div>
 
   <script src="js/script.js" defer></script>

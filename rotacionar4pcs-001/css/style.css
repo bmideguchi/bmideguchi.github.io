@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    overflow: hidden;
+  }
+  
+/* Estilos para o container principal */
+.container {
+  display: flex;
+  justify-content: flex-end; /* Alinha o puzzle-container à direita */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Altura total da tela */
+  width: 100%; /* Largura total */
+  position: relative;
+}
+  
+  .screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    transition: opacity 0.5s ease;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .header {
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    font-size: 2em;
+    padding: 1em 0;
+  }
+  
+  .background {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/cover.jpg'); /* Substitua com a imagem real */
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 1em;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .instructions {
+    text-align: center;
+    padding: 2em;
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .game-area {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 80%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .puzzle-piece {
+    border: 1px solid #333;
+    cursor: grab;
+  }
+/* Contêiner do quebra-cabeça */
+.puzzle-container {
+    position: relative;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente o puzzleArea */
+  align-items: center; /* Centraliza verticalmente o puzzleArea */
+  width: 100%; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  }
+
+  .puzzle-area {
+    width: auto;
+    height: auto;
+    position: relative;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 0; /* Grudado à direita */
+  }
+  
+  .puzzle-area::after {
+    content: '';
+    position: absolute;
+    background-image: url('../img/puzzle-image.jpg'); /* Substitua com a imagem real */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .message {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .message h2 {
+    font-size: 2em;
+    color: #4CAF50;
+    margin-bottom: 1em;
+  }
+  
+  #completedImage {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin: 1em auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }

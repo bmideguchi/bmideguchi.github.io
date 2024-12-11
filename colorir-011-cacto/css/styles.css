@@ -52,20 +52,34 @@ body {
 
 /* Paleta de cores */
 .palette {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+    display: grid; /* Configura a paleta como um grid */
+    grid-template-columns: repeat(2, 1fr); /* Cria duas colunas iguais */
+    gap: 10px; /* Espaçamento entre as cores */
+    justify-content: center; /* Centraliza o grid horizontalmente */
+    align-items: center; /* Centraliza o grid verticalmente */
+    margin: auto 0;
+    padding: 10px;
+    background-color: #f4f4f9; /* Fundo neutro para a paleta */
+    border-right: 1px solid #ddd; /* Linha divisória entre a paleta e o SVG */
+    width: 120px; /* Largura fixa da paleta */
+    height: 100%; /* Ocupa toda a altura do container */
+    overflow-y: auto; /* Permite rolagem caso ainda existam muitas cores */
 }
 
+/* Cada cor */
 .color {
-    width: 50px;
-    height: 50px;
-    margin: 0 10px;
-    border: 3px solid #fff; /* Destaca a borda com branco */
+    width: 40px;
+    height: 40px;
+    border: 2px solid #fff;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para um visual 3D */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.color:hover {
+    transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* Para o branco, adicionamos um contorno para melhor visibilidade */
@@ -73,30 +87,30 @@ body {
     border: 2px solid #ccc;
 }
 
-.color:hover {
-    transform: scale(1.2); /* Efeito de zoom ao passar o mouse */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4); /* Sombra aumentada ao passar o mouse */
-}
-
 /* Redimensionamento automático do SVG */
+/* Estilo para garantir aspecto 1:1 e visibilidade */
+/* Área do SVG */
 #svg-container {
-    margin: 20px auto;
-    max-width: 90vw; /* Limita a largura máxima a 90% da largura da janela */
-    max-height: 90vh; /* Limita a altura máxima a 90% da altura da janela */
-    width: auto; /* Ajusta automaticamente a largura se a altura for limitada */
-    height: auto; /* Ajusta automaticamente a altura se a largura for limitada */
-    display: flex; /* Centraliza o SVG */
+    flex: 1; /* O SVG ocupa o espaço restante */
+    display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    overflow: hidden; /* Impede que o SVG ultrapasse o container */
+    background-color: #fff; /* Fundo branco para o SVG */
+    height: 100%; /* Alinha verticalmente com a paleta */
 }
 
 #svg-container svg {
-    max-width: 100%; /* Ocupa todo o espaço horizontal disponível no container */
-    max-height: 100%; /* Ocupa todo o espaço vertical disponível no container */
-    width: auto; /* Mantém a largura proporcional à altura */
-    height: auto; /* Mantém a altura proporcional à largura */
+    width: auto;
+    height: auto;
+    max-width: 90vmin; /* Limita a largura máxima ao menor lado da tela */
+    max-height: 90vmin; /* Limita a altura máxima ao menor lado da tela */
+    aspect-ratio: 1 / 1; /* Força o aspecto 1:1 */
 }
 
+#game {
+    display: flex; /* Configura o layout como Flexbox */
+    flex-direction: row; /* Organiza os itens lado a lado (horizontalmente) */
+    height: 100%; /* Ocupa toda a altura da janela */
+    width: 100%; /* Ocupa toda a largura da janela */
+    overflow: hidden; /* Garante que nenhum conteúdo transborde */
+}

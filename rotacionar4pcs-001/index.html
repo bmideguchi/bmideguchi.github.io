@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo Infantil - Puzzle</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Tela de capa -->
+    <div id="coverScreen" class="screen">
+      <div class="header">Jogo do Quebra-Cabeça</div>
+      <div class="background"></div>
+      <div class="footer">
+        <button id="startButton">Iniciar</button>
+      </div>
+    </div>
+
+    <!-- Tela de instruções -->
+    <div id="instructionScreen" class="screen hidden">
+      <div class="instructions">
+        <p id="instructionText">
+          Bem-vindo ao jogo do quebra-cabeça! Seu objetivo é reconstruir a imagem movendo e rotacionando as peças. Boa sorte!
+        </p>
+        <button id="playButton">Jogar</button>
+      </div>
+    </div>
+
+    <!-- Tela do jogo -->
+    <div id="gameScreen" class="screen hidden">
+      <div class="game-area">
+        <div class="puzzle-pieces" id="puzzlePieces"></div>
+        <div class="puzzle-container">
+            <div class="puzzle-area" id="puzzleArea"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tela de vitória -->
+    <div id="winScreen" class="screen hidden">
+      <div class="overlay">
+        <div class="message">
+          <h2>Parabéns!</h2>
+          <div id="completedImage"></div>
+          <button id="retryButton">Tentar de Novo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

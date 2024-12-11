@@ -43,7 +43,9 @@ const games = [
     { folder: "desenhar-012", name: "Maçã", category: "desenhar"},
     { folder: "desenhar-013", name: "Lupa", category: "desenhar"},
     { folder: "desenhar-014", name: "Troféu", category: "desenhar"},
-    { folder: "desenhar-015", name: "Bateria", category: "desenhar"}
+    { folder: "desenhar-015", name: "Bateria", category: "desenhar"},
+    { folder: "rotacionar4pcs-001", name: "4 peças - Coala", category: "rotacionar"},
+    { folder: "rotacionar1pc-001", name: "1 peça - Coala", category: "rotacionar"}
 
 ];
 const categoryColors = {
@@ -51,7 +53,8 @@ const categoryColors = {
     relacionar: "#2196f3",
     liguePontos: "#4caf50",
     empilhar: "#ffbd22",
-    desenhar: "#4B0082"
+    desenhar: "#4B0082",
+    rotacionar: "rgb(150,100,50)"
 };
 
 function toggleDropdown() {

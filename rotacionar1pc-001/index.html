@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Rotação</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Tela de capa -->
+    <div id="coverScreen" class="screen">
+      <h1>Jogo de Rotação</h1>
+      <button id="startButton">Começar</button>
+    </div>
+
+    <!-- Tela de instruções -->
+    <div id="instructionScreen" class="screen hidden">
+      <p>Clique na peça para rotacioná-la até que fique igual à referência. Depois, clique em verificar.</p>
+      <button id="playButton">Jogar</button>
+    </div>
+
+    <!-- Tela do jogo -->
+    <div id="gameScreen" class="screen hidden">
+      <div class="game-layout">
+        <div id="puzzleArea" class="puzzle-area"></div>
+        <div id="referenceArea" class="reference-area"></div>
+      </div>
+      <button id="checkButton">Verificar</button>
+    </div>
+
+    <!-- Tela de vitória -->
+    <div id="winScreen" class="screen hidden">
+      <h2>Parabéns, você completou o jogo!</h2>
+      <button id="retryButton">Tentar Novamente</button>
+    </div>
+
+    <!-- Tela de erro -->
+    <div id="errorScreen" class="screen hidden">
+      <h2>Erro! Tente novamente.</h2>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
